@@ -1,0 +1,84 @@
+<div class="container">
+<input ng-model='inputState' />
+<button ng-click='setGameState(inputState)'>Set state</button>
+<br/>
+<br/>
+<button ng-click='checkState()'>check state</button>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div>
+  <div ng-show='gameState === "lobby"'> 
+    <p>tis lobby</p>
+    <table class="CSSTableGenerator" >
+        <tr>
+            <th>
+                Username
+            </th>
+            <th>
+                Color
+            </th>
+        </tr>
+        <tr>
+            <td>
+                {{currentUser.username}}
+            </td>
+            <td>
+                other peopl
+            </td>
+        </tr>
+        
+
+    </table>
+    
+            
+  </div>
+  <div ng-show='gameState === "ongoing"'>
+    tis ongoing
+  </div>
+  <div ng-show='gameState === "browse"'>
+     
+
+      <tabset>
+            <tab>
+                <tab-heading>Join Game</tab-heading>
+                    <div class='col-md-6'>
+                    <button ng-click="enterGame(selectedGame)">Enter Game</button>
+                    <p>{{message}}</p>
+                    <b>select some fruit:</b> <br/>
+                    <select  NAME="Morefruit" SIZE="10"  style="width: 300px">
+                            <option ng-repeat="g in games" ng-bind="g.name" ng-click="selectGame(g)"> </option>
+                    </select>    
+                </div>
+                <div class='col-md-6'>
+                    <p>Host: {{selectedGame.host}}</p>    
+                </div>
+                
+            </tab>
+            <tab>
+                <tab-heading>Create Game</tab-heading>
+                 <form class="well" novalidate class="simple-form" ng-submit="create()">
+                    Game name: <input type="text" ng-model="game.name" /><br />
+                    <input type="button" ng-click="reset()" value="Reset" />
+                    <input type="submit" ng-click="update(game)" value="OK" />
+                    <button>Cancel</button>
+                  </form>
+                  <pre>Game description = {{game | json}}</pre>
+                  <pre>Map stats = {{master | json}}</pre>
+                  <!-- <pre ng-model="game.host">Host: {{currentUser.username}}</pre> -->
+            </tab>
+            <tab>
+                <section ng-init="populateUsersAndGames()"></section>
+                <tab-heading>Leaderboard</tab-heading>
+                <p>Current Leaderboard: </p>
+                <ul ng-repeat='u in usernameList'>
+                  <li>{{u}}</li>
+                </ul>
+            </tab>
+        </tabset>
+    </div>
+  
+</div>
+</div>
