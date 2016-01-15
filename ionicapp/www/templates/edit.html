@@ -1,0 +1,24 @@
+<ion-view view-title="Search" >
+<ion-content>
+
+<form ng-submit="update()">
+  <div class="list">
+    <label class="item item-input">
+      <span class="input-label">Title</span>
+    <input type="text" ng-model="blog.title"  id="title" placeholder="Title" required="" class="form-control">
+
+  </label>
+  <label class="item item-input">
+      <span class="input-label">Content</span>
+      <textarea ng-model="blog.content"  id="content" rows="10" placeholder="Content"></textarea>
+
+  </label>
+  <label class="item">
+     <button type="submit" class="btn btn-primary pull-right">Submit</button>
+ </label>
+</div>
+</form>
+
+
+</ion-content>
+</ion-view>
