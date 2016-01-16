@@ -22,13 +22,13 @@ fs.readdirSync(modelsPath).forEach(function (file) {
 
 var pass = require('./lib/config/pass');
 
-// App Configuration
-// app.options(/\.*/, function (req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
-//     res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT');
-//     res.send(200);
-// });
+ App Configuration
+ app.options(/\.*/, function (req, res, next) {
+     res.header("Access-Control-Allow-Origin", "*");
+     res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
+     res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT');
+     res.send(200);
+ });
 
 app.configure('development', function(){
   app.use(express.static(path.join(__dirname, '/')));
