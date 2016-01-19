@@ -1,0 +1,29 @@
+
+
+<ion-view view-title="Search">
+  <ion-header-bar>
+    <h1 class="title">Login</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+    </div>
+  </ion-header-bar>
+
+<ion-content>
+    <form ng-submit="create()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Title</span>
+          <input type="text" id="title" ng-model="blogData.title">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Content</span>
+          <textarea ng-model="blogData.content" id="content"></textarea>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Create Blog</button>
+        </label>
+      </div>
+    </form>
+
+</ion-content>
+</ion-view>

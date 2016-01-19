@@ -1,10 +1,11 @@
 'use strict';
 
-angular.module('angularPassportApp')
-  .factory('Auth', Auth);
-  Auth.$inject = ['$location', '$rootScope', 'Session', 'User', '$cookieStore'];
+angular.module('starter')
+  .factory('Auth',Auth);
 
-  function Auth($location, $rootScope, Session, User, $cookieStore) {
+Auth.$inject = ['$location','$rootScope','Session','User','$cookieStore'];
+
+   function Auth($location, $rootScope, Session , User, $cookieStore) {
     $rootScope.currentUser = $cookieStore.get('user') || null;
     $cookieStore.remove('user');
 

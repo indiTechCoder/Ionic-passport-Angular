@@ -1,0 +1,17 @@
+<ion-view view-title="Blogs">
+  <ion-content>
+    <ion-list>
+    <ion-item  ng-repeat="blog in Blogs">
+        <h1><a ng-href="#/blog/{{blog._id}}/edit">{{blog.title}}</a></h1>
+        <p>{{blog.content}}</p>
+        <div>
+            <div class="pull-right"><span class="badge badge-success">Posted by {{blog.creator.username}}</span></div>
+        </div>
+        <hr>
+    </ion-item >
+    <h1 ng-hide="!blogs || blogs.length">No blogs yet. <br> Why don't you <a href="#/blog/create">Create One</a>?</h1>
+
+
+    </ion-list>
+  </ion-content>
+</ion-view>
