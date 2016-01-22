@@ -11,7 +11,6 @@ var replace = require('replace');
 var paths = {
   sass: ['./scss/**/*.scss']
 };
-
 var replaceFiles = ['./www/js/app.js'];
 
 gulp.task('default', ['sass']);

@@ -9,6 +9,10 @@
     {
       "path": "/auth",
       "proxyUrl": "http://localhost:3000/auth/users"
+    },
+     {
+      "path": "/blog",
+      "proxyUrl": "http://localhost:3000/auth/blog"
     }
   ]
 }
