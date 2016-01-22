@@ -10,7 +10,6 @@ var express = require('express'),
     config = require('./lib/config/config');
 
 var app = express();
-
 // Connect to database
 var db = require('./lib/db/mongo').db;
 
@@ -29,20 +28,17 @@ var pass = require('./lib/config/pass');
      res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT');
      res.send(200);
  });
-
 app.configure('development', function(){
   app.use(express.static(path.join(__dirname, '/')));
   app.use(express.static(path.join(__dirname, '/')));
   app.use(express.errorHandler());
   app.set('views', __dirname + '/app/views');
 });
-
 app.configure('production', function(){
   app.use(express.favicon(path.join(__dirname, 'public', 'favicon.ico')));
   app.use(express.static(path.join(__dirname, 'public')));
   app.set('views', __dirname + '/views');
 });
-
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.use(express.logger('dev'));
@@ -72,7 +68,6 @@ app.use(app.router);
 
 //Bootstrap routes
 require('./lib/config/routes')(app);
-
 // Start server
 var port = process.env.PORT || 3000;
 app.listen(port, function () {
