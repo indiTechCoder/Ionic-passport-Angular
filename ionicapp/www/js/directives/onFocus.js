@@ -4,7 +4,6 @@ angular.module('angularPassportApp')
   .constant('focusConfig', {
     focusClass: 'focused'
   })
-
   .directive('onFocus', function (focusConfig) {
     return {
       restrict: 'A',

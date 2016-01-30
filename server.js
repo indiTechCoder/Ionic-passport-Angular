@@ -8,7 +8,6 @@ var express = require('express'),
     fs = require('fs'),
     mongoStore = require('connect-mongo')(express),
     config = require('./lib/config/config');
-
 var app = express();
 // Connect to database
 var db = require('./lib/db/mongo').db;

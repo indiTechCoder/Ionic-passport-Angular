@@ -5,11 +5,9 @@ angular.module('starter')
 AppCtrl.$inject = ['$scope','$ionicModal','Auth','$timeout','$location'];
 
  function AppCtrl($scope, $ionicModal,Auth, $timeout,$location) {
-
   $scope.error = {};
   $scope.user = {};
   // Create the login modal that we will use later
-
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
   }).then(function(modal1) {
