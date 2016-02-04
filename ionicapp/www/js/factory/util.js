@@ -3,10 +3,10 @@
 	'use strict';
 
 	// Agent Routes
-	var app = angular.module('code-fun');
+	var app = angular.module('starter');
 
 	// Application configuration
-	app.config(['$routeProvider','$httpProvider', function ($routeProvider, $httpProvider) {
+	app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
 		// ******************** HTTP INTERCEPTER **************************
 		var checkLoggedin = function($q, $timeout, $http, $location, $rootScope) {
@@ -81,8 +81,8 @@
 		// ************************ End ***************************
 
 		// Buyer/seller routes
-		$routeProvider
-			.when('/users/dashboard', {
+		$stateProvider
+			.state('/users/dashboard', {
 				templateUrl:'/modules/dashboards/views/buyersellers/dashboard.html',
 				controller : 'buyersellerDashboardCtrl',
 				title:'Dashboard',
@@ -90,7 +90,6 @@
 					// you can lazy load files for an existing module
 					loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
 						return $ocLazyLoad.load({
-							name : 'DashboardModule',
 							files: [
 								'/modules/dashboards/controllers/dashboardCtrl.js',
 								'/modules/dashboards/services/dashboardService.js',
@@ -101,10 +100,9 @@
 					loggedin: checkLoggedin
 				}
 			})
-			.when('/users/profile/:id', {
+			.state('/users/profile/:id', {
 				templateUrl:'/modules/profiles/views/buyersellers/profile.html',
 				controller : 'buyersellerProfileCtrl',
-				title:'Edit Profile',
 				resolve : {
 					// you can lazy load files for an existing module
 					loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -119,22 +117,9 @@
 					loggedin: checkLoggedin
 				}
 			})
-			.when('/404',{
-				templateUrl:'/views/error/404.html',
-				title:'404 Not Found'
-			})
-			.otherwise({
-				redirectTo: '/404'
+			.state('/404',{
+				templateUrl:'/views/error/404.html'
 			});
-	}]).run(['$location', '$rootScope','$mdToast','$window', '$URL', function ($location, $rootScope, $mdToast, $window, $URL) {
-		$rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
-			if(current !== undefined && current.$$route !== undefined){
-				$rootScope.title = current.$$route.title;
-			}else{
-				$rootScope.title = 'Not Found!';
-			}
-		});
-
 	}])
 
 })();
