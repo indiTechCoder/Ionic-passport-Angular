@@ -1,4 +1,6 @@
+(function(){
 'use strict';
+
 
 angular.module('starter')
   .factory('Auth',Auth);
@@ -82,3 +84,5 @@ Auth.$inject = ['$location','$rootScope','Session','User','$cookieStore'];
       }
     };
   }
+
+})();
